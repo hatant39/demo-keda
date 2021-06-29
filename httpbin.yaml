@@ -42,5 +42,8 @@ spec:
       - image: docker.io/kennethreitz/httpbin
         imagePullPolicy: IfNotPresent
         name: httpbin
+        envFrom:
+        - secretRef:
+            name: demo-keda-secret
         ports:
         - containerPort: 80
