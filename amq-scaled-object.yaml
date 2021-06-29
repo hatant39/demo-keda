@@ -11,7 +11,7 @@ spec:
   - type: rabbitmq
     metadata:
       protocol: amqp
-      queueName: dev_q
+      queueName: test_q
       mode: QueueLength
       value: "100"
     authenticationRef:
