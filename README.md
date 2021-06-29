@@ -1,6 +1,13 @@
 ### Authentication
 This demo is using TriggerAuthentication, which is namespace scoped.  To scope to the entire cluster, use ClusterTriggerAuthentication.
 
+### Triggers
+* protocol: amqp
+* queueName: test_q
+* mode: QueueLength
+* value: 100
+
+
 ### Example events from the ScaledObject
 ```
 Normal  KEDAScalersStarted          21m                keda-operator  Started scalers watch
@@ -15,11 +22,13 @@ NAME                       READY   STATUS    RESTARTS   AGE   IP            NODE
 httpbin-779c54bf49-rxbcp   1/1     Running   0          53s   172.18.0.7    minikube   <none>           <none>
 httpbin-779c54bf49-tb885   1/1     Running   0          43s   172.18.0.10   minikube   <none>           <none>
 ```
+
 #### Event showing the ScaledObject increasing the replicas then decreasing post consumption
 ```
   Normal  KEDAScaleTargetActivated    9m14s  keda-operator  Scaled apps/v1.Deployment demo-keda/httpbin from 0 to 1
   Normal  KEDAScaleTargetDeactivated  9s     keda-operator  Deactivated apps/v1.Deployment demo-keda/httpbin from 2 to 0
 ```
+
 #### After the scale down event, there are 0 httpbin pods
 ```
 ❯ kgp -o wide -lapp=httpbin
