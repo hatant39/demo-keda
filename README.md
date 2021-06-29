@@ -1,3 +1,6 @@
+### Authentication
+This demo is using TriggerAuthentication, which is namespace scoped.  To scope to the entire cluster, use ClusterTriggerAuthentication.
+
 ### Example events from the ScaledObject
 ```
 Normal  KEDAScalersStarted          21m                keda-operator  Started scalers watch
